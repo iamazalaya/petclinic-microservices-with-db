@@ -12,7 +12,7 @@ data "aws_vpc" "name" {
 
 resource "aws_security_group" "k8s-sec-gr" {
   name = var.sec-gr-k8s
-  vpc_id = vpc-0410818f8ddd78cd5
+  vpc_id = data.aws_vpc.name.id
   tags = {
     Name = var.sec-gr-k8s
   }
